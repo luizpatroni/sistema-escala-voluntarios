@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Escala de Voluntários</title></head>
+<body>
+<h1>Cadastro de Voluntários</h1>
+<form method="post" action="/adicionar">
+Nome: <input name="nome" required>
+Telefone: <input name="telefone">
+<button type="submit">Salvar</button>
+</form>
+
+<h2>Voluntários</h2>
+<ul>
+{% for v in voluntarios %}
+<li>{{v[1]}} - {{v[2]}}</li>
+{% endfor %}
+</ul>
+
+<a href="/gerar">Gerar Escala</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Escala</title></head>
+<body>
+<h1>Escala Mensal</h1>
+{% for dia, grupo in escala %}
+<h3>{{dia}}</h3>
+<ul>
+{% for pessoa in grupo %}
+<li>{{pessoa}}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+<a href="/">Voltar</a>
+</body>
+</html>
