@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Voluntário</title>
+</head>
+<body>
+
+<h1>Editar Voluntário</h1>
+
+<form method="post">
+
+    Nome:
+    <input
+        type="text"
+        name="nome"
+        value="{{voluntario[1]}}"
+        required
+    >
+
+    <br><br>
+
+    Telefone:
+    <input
+        type="text"
+        name="telefone"
+        value="{{voluntario[2]}}"
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Salvar
+    </button>
+
+</form>
+
+<br>
+
+<a href="/">Voltar</a>
+
+</body>
+</html>

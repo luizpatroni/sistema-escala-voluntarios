@@ -34,6 +34,43 @@ def adicionar():
     c.close()
     return redirect("/")
 
+@app.route("/excluir/<int:id>")
+def excluir(id):
+    c = conn()
+    c.execute("DELETE FROM voluntarios WHERE id = ?", (id,))
+    c.commit()
+    c.close()
+    return redirect("/")
+
+@app.route("/editar/<int:id>", methods=["GET", "POST"])
+def editar(id):
+    c = conn()
+
+    if request.method == "POST":
+        nome = request.form["nome"]
+        telefone = request.form["telefone"]
+
+        c.execute(
+            "UPDATE voluntarios SET nome = ?, telefone = ? WHERE id = ?",
+            (nome, telefone, id)
+        )
+        c.commit()
+        c.close()
+
+        return redirect("/")
+
+    voluntario = c.execute(
+        "SELECT * FROM voluntarios WHERE id = ?",
+        (id,)
+    ).fetchone()
+
+    c.close()
+
+    return render_template(
+        "editar.html",
+        voluntario=voluntario
+    )
+
 @app.route("/gerar")
 def gerar():
     c = conn()

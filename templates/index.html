@@ -12,7 +12,19 @@ Telefone: <input name="telefone">
 <h2>Voluntários</h2>
 <ul>
 {% for v in voluntarios %}
-<li>{{v[1]}} - {{v[2]}}</li>
+<li>
+    {{v[1]}} - {{v[2]}}
+
+    <a href="/editar/{{v[0]}}">
+        Editar
+    </a>
+
+    |
+
+    <a href="/excluir/{{v[0]}}">
+        Excluir
+    </a>
+</li>
 {% endfor %}
 </ul>
 
