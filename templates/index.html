@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head><title>Escala de Voluntários</title></head>
+<head>
+    <title>Escala de Voluntários</title>
+</head>
 <body>
+
 <h1>Cadastro de Voluntários</h1>
+
 <form method="post" action="/adicionar">
-Nome: <input name="nome" required>
-Telefone: <input name="telefone">
-<button type="submit">Salvar</button>
+
+    Nome:
+    <input name="nome" required>
+
+    Telefone:
+    <input name="telefone">
+
+    <button type="submit">
+        Salvar
+    </button>
+
 </form>
 
 <h2>Voluntários</h2>
+
 <ul>
+
 {% for v in voluntarios %}
+
 <li>
+
     {{v[1]}} - {{v[2]}}
+
+    {% if v[3] %}
+        | Parceiro: {{v[3]}}
+    {% endif %}
 
     <a href="/editar/{{v[0]}}">
         Editar
@@ -24,10 +44,18 @@ Telefone: <input name="telefone">
     <a href="/excluir/{{v[0]}}">
         Excluir
     </a>
+
 </li>
+
 {% endfor %}
+
 </ul>
 
-<a href="/gerar">Gerar Escala</a>
+<br>
+
+<a href="/gerar">
+    Gerar Escala
+</a>
+
 </body>
 </html>

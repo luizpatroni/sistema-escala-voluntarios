@@ -29,6 +29,29 @@
     <br><br>
 
     <button type="submit">
+    <br><br>
+
+    Parceiro:
+
+    <select name="parceiro_id">
+
+        <option value="">
+            Nenhum
+        </option>
+
+        {% for v in voluntarios %}
+
+            <option value="{{v[0]}}">
+
+                {{v[1]}}
+
+            </option>
+
+        {% endfor %}
+
+    </select>
+
+    <br><br>
         Salvar
     </button>
 

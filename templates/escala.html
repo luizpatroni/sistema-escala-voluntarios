@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head><title>Escala</title></head>
+<head>
+    <title>Escala Mensal</title>
+</head>
 <body>
+
 <h1>Escala Mensal</h1>
-{% for dia, grupo in escala %}
-<h3>{{dia}}</h3>
-<ul>
-{% for pessoa in grupo %}
-<li>{{pessoa}}</li>
+
+{% for celebracao, voluntarios in escala.items() %}
+
+    <h3>{{ celebracao }}</h3>
+
+    <ul>
+
+    {% for voluntario in voluntarios %}
+
+        <li>{{ voluntario }}</li>
+
+    {% endfor %}
+
+    </ul>
+
 {% endfor %}
-</ul>
-{% endfor %}
-<a href="/">Voltar</a>
+
+<br>
+
+<a href="/">
+    Voltar
+</a>
+
 </body>
 </html>
